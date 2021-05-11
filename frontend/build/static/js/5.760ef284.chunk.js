@@ -1,0 +1,2 @@
+(this.webpackJsonpfrontend=this.webpackJsonpfrontend||[]).push([[5],{115:function(e,n,s){"use strict";s.r(n);s(1);var t=s(59),i=(s(54),s(7),s(0));n.default=function(e){var n=e.posts;return console.log(n),Object(i.jsx)("div",{children:n.map((function(e,n){return Object(i.jsx)(i.Fragment,{children:Object(i.jsx)(t.a,{news_image:e.news_image,news_title:e.news_title,news_box:e.news_box,news_ID:e.news_ID,email:e.email},e._id)})}))})}}}]);
+//# sourceMappingURL=5.760ef284.chunk.js.map
