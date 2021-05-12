@@ -25,6 +25,13 @@ app.use('/',userRouter);
 
 
 
-app.listen(PORT, () => {
+app.listen(PORT, '127.0.0.1',() => {
     console.log(`connected to database, app listening on port ${PORT}`);
 });
+// /root/covidproject-mern/frontend/build
+
+// location / {
+//     # First attempt to serve request as file, then
+//     # as directory, then fall back to displaying a 404.
+//     try_files $uri $uri/ =404;
+// }

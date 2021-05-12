@@ -86,7 +86,9 @@ function Navbar() {
                         </div>
                         <div className="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
                             <div className="d-flex justify-content-end">
-                                <NavLink target="_blank" to="#" data-abc="true" className="nav-link widget-header"> <i className="fas fa fa-telegram"></i></NavLink> <span className="vl"></span>
+
+                                <NavLink to="/" data-abc="true" className="nav-link widget-header"> <i className="fas fa fa-home"></i></NavLink> <span className="vl"></span>
+
                                 <div className="dropdown btn-group">
                                     <NavLink className="nav-link nav-icons" to="/coronaLive" id="navbarDropdownMenuLink1"><i className="fas fa fa-heartbeat"></i></NavLink>
                                 </div> <span className="vl"></span>
@@ -109,7 +111,7 @@ function Navbar() {
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item"> <NavLink activeClassName="text-white bg-primary" className="nav-link" exact to="/" data-abc="true">Resource</NavLink> </li>
                             {/* <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/freeconsultancy" data-abc="true">Free Consultancy</NavLink> </li> */}
-                            <li className="nav-item"> <NavLink activeClassName="text-white bg-primary" className="nav-link" to="/News" data-abc="true">News</NavLink> </li>
+                            <li className="nav-item"> <NavLink activeClassName="text-white bg-primary" className="nav-link" to="/Feed" data-abc="true">Feed</NavLink> </li>
                             {/* <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/registration" data-abc="true">Registration</NavLink> </li> */}
                             <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/CoronaLive" data-abc="true">Corona Live</NavLink> </li>
                             <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/contactus" data-abc="true">Get in Touch</NavLink> </li>

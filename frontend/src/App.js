@@ -35,7 +35,7 @@ function App() {
         <Route exact path="/" render={() => <Home />} />
         {/* <Route exact path="/freeconsultancy" component={Freeconsultancy} /> */}
         <Route exact path="/about" component={About} />
-        <Route exact path="/news" render={() => <News />} />
+        <Route exact path="/feed" render={() => <News />} />
         <Route exact path="/registration" component={Registration} />
         <Route exact path="/Login" component={Login} />
         <Route exact path="/CoronaLive" component={Coronolive} />

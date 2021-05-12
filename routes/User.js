@@ -139,7 +139,6 @@ userRouter.post('/Postnews', [passport_auth, upload_mid], async (req, res) => {
                     const countPosts = await db.getDB().collection('newsPost').countDocuments({
                         email: req.user.email
                     });
-                    console.log(countPosts);
                     if (countPosts > 20)
                         res.status(401).json({ error: "Not more than 20" });
                     else {
@@ -269,7 +268,6 @@ userRouter.post('/DeleteuserNewsData', passport_auth, async (req, res) => {
             .then(async user => {
                 if (user) {
                     const Result = await db.getDB().collection("newsPost").find({ "news_ID": { $in: [...SelectedInp] } }).toArray()
-                    console.log(Result)
                     const deleteResult = await db.getDB().collection("newsPost").deleteMany({ "news_ID": { $in: [...SelectedInp] } })
                     if (deleteResult && Result.length > 0) {
                         const NewsData = await db.getDB().collection("newsPost").find({ email: body_email }).toArray();

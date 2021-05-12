@@ -60,9 +60,9 @@ const News = (News_prop) => {
                 <meta charSet="utf-8" />
                 <title>Search</title>
             </Helmet></>}
-        {search==='/news'?<>  <Helmet>
+        {search==='/feed'?<>  <Helmet>
                 <meta charSet="utf-8" />
-                <title>News</title>
+                <title>Feed</title>
             </Helmet><Postcard /></>:null}
         
 
