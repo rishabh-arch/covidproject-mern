@@ -2,6 +2,9 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 const bcrypt = require('bcrypt');
+const dotenv = require("dotenv");
+dotenv.config({ path: './config.env' });
+const secret = process.env.secret;
 
 const db = require('./mongoBase/db.js');
 const cookieExtractor = req => {
@@ -20,7 +23,7 @@ db.connect((err) => {
 // authorization 
 passport.use(new JwtStrategy({
     jwtFromRequest: cookieExtractor,
-    secretOrKey: "secret"
+    secretOrKey: secret
 }, (payload, done) => {
     // User.findById({_id : payload.sub},(err,user)=>{
     db.getDB().collection("users").findOne({ _id: db.getPrimaryKey(payload.sub) }, (err, user) => {

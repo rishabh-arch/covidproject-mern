@@ -76,7 +76,7 @@ function Navbar() {
                 <div className="container-fluid">
                     <div className="row align-items-center">
                         <div className="col-lg-3 col-sm-4 col-md-4 col-5"> <a href="/" className="brand-wrap" data-abc="true">
-                            <span className="logo">Oxygen</span> </a> </div>
+                            <span className="logo">OxHome</span> </a> </div>
                         <div className="col-lg-4 col-xl-5 col-sm-8 col-md-4 d-none d-md-block">
                             {/* <form  className="search-wrap"> */}
                             <div className="input-group w-100"> <input type="text" className="form-control search-form" style={{ width: "55%" }} placeholder="Search" defaultValue={inputSearch} name="input" onChange={(e) => setInput(e.target.value)} />
@@ -107,7 +107,7 @@ function Navbar() {
                      <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#dropdown6" aria-expanded="false"> <i className="fa fa-bars" /> </button>
                     <div className="navbar-collapse collapse" id="dropdown6">
                         <ul className="navbar-nav mr-auto">
-                            <li className="nav-item"> <NavLink className="nav-link" to="/" data-abc="true">Resdfsfsdource</NavLink> </li>
+                            <li className="nav-item"> <NavLink activeClassName="text-white bg-primary" className="nav-link" exact to="/" data-abc="true">Resource</NavLink> </li>
                             {/* <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/freeconsultancy" data-abc="true">Free Consultancy</NavLink> </li> */}
                             <li className="nav-item"> <NavLink activeClassName="text-white bg-primary" className="nav-link" to="/News" data-abc="true">News</NavLink> </li>
                             {/* <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/registration" data-abc="true">Registration</NavLink> </li> */}

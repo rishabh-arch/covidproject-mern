@@ -2,7 +2,7 @@ const express = require('express');
 const userRouter = express.Router();
 const passport = require('passport');
 const passportConfig = require('../passport');
-const dotenv = require("dotenv")
+const dotenv = require("dotenv");
 const JWT = require('jsonwebtoken');
 const bodyParser = require("body-parser")
 const bcrypt = require('bcrypt');
@@ -21,9 +21,9 @@ const uploads = multer({ storage });
 const secret = process.env.secret;
 const signToken = userID => {
     return JWT.sign({
-        iss: "secret",
+        iss: secret,
         sub: userID
-    }, "secret", { expiresIn: Date.now() + 99999999999 });
+    }, secret, { expiresIn: Date.now() + 99999999999 });
 }
 userRouter.use(bodyParser.json()); // <--- Here
 userRouter.use(bodyParser.urlencoded({ extended: true }));
