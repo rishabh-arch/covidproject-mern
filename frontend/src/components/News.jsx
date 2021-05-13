@@ -6,8 +6,8 @@ import Loading from "./loading/loading"
 import axios from "axios"
 import Spinner from 'react-bootstrap/Spinner';
 import Pagination from 'react-bootstrap/Pagination'
-import { NavLink,useLocation } from "react-router-dom"
-import {Helmet} from "react-helmet";
+import { NavLink, useLocation } from "react-router-dom"
+import { Helmet } from "react-helmet";
 const News_container = React.lazy(() => import('./News_container'));
 const body = document.querySelector('#root');
 const News = (News_prop) => {
@@ -18,59 +18,64 @@ const News = (News_prop) => {
     let items = [];
     const [getNews, setNews] = useState([])
     const [getQureyPage, setQureyPage] = useState(1)
-    const pageChanger = (e) =>{
+    const pageChanger = (e) => {
         setPage(e);
     }
- 
+
     useEffect(() => {
         axios
             .get(`/Postnews?page=${getPage}&ss=${News_prop.props}`)
             .then((res) => {
                 setNews(res.data.news_post)
                 setQureyPage(res.data.itemCount)
-    
-            body.scrollIntoView({
-                behavior: 'smooth'
-            }, 500)}
+
+                body.scrollIntoView({
+                    behavior: 'smooth'
+                }, 500)
+            }
             )
 
     }, [getPage])
-    
-    for(let number = 1; number <= Math.ceil(getQureyPage/20) ; number++) {
+
+    for (let number = 1; number <= Math.ceil(getQureyPage / 20); number++) {
         items.push(
-            <Pagination.Item key={number}  onClick={()=>{
+            <Pagination.Item key={number} onClick={() => {
                 pageChanger(number);
             }} active={number === active} >
-         {number}
+                {number}
             </Pagination.Item>,
         );
-}
+    }
     const paginationBasic = (
         <div className="d-flex justify-content-center">
-          <Pagination>{items}</Pagination>
+            <Pagination>{items}</Pagination>
         </div>
-      );
+    );
     // console.log(posts)
     return (
         <div>
-         {getNews.length===1?<><Helmet>
+            {getNews.length === 1 ? <><Helmet>
                 <meta charSet="utf-8" />
                 <title>{getNews[0].news_title}</title>
-            </Helmet></>:<><Helmet>
+                <meta property="og:title" content={`${getNews[0].news_title}`} />
+                <meta name='og:image' content={`http://www.oxhome.in/uploads/thumbnail/${{`${getNews[0].news_image}`}}`} />
+                <meta name='og:description' content={`${getNews[0].news_box.slice(0, 15)}....`} />
+                <meta name="theme-color" content="#232f3e" />
+            </Helmet></> : <><Helmet>
                 <meta charSet="utf-8" />
                 <title>Search</title>
             </Helmet></>}
-        {search==='/feed'?<>  <Helmet>
+            {search === '/feed' ? <>  <Helmet>
                 <meta charSet="utf-8" />
                 <title>Feed</title>
-            </Helmet><Postcard /></>:null}
-        
+            </Helmet><Postcard /></> : null}
+
 
             <Suspense fallback={<Spinner style={{ "margin-left": "50%" }} animation="border" variant="info" />}>
                 <News_container posts={getNews} />
             </Suspense>
-          <div>
-            {paginationBasic}
+            <div>
+                {paginationBasic}
             </div>
         </div>
 
