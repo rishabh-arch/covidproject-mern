@@ -58,7 +58,7 @@ const News = (News_prop) => {
                 <meta charSet="utf-8" />
                 <title>{getNews[0].news_title}</title>
                 <meta property="og:title" content={`${getNews[0].news_title}`} />
-                <meta name='og:image' content={`http://www.oxhome.in/uploads/thumbnail/${{`${getNews[0].news_image}`}}`} />
+                <meta name='og:image' content={`http://www.oxhome.in/uploads/thumbnail/${`${getNews[0].news_image}`}`} />
                 <meta name='og:description' content={`${getNews[0].news_box.slice(0, 15)}....`} />
                 <meta name="theme-color" content="#232f3e" />
             </Helmet></> : <><Helmet>
