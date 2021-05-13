@@ -6,7 +6,6 @@ import axios from "axios"
 
 const News_container = ({posts}) => {
 
-console.log(posts)
     return (
         <div>
             {/* <Suspense fallback={<div>Loading...</div>}> */}
