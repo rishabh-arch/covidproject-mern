@@ -3,14 +3,12 @@ const dotenv = require("dotenv")
 const app = express();
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
-app.use(express.json());
+app.use(express.json({limit:'5mb'}));
 
 dotenv.config({ path: './config.env' });
 PORT = 5000;
 
-app.use(express.urlencoded({
-    extended: true
-}));
+app.use(express.urlencoded({limit: '5mb', extended: true}));
 app.disable('x-powered-by');
 
 const userRouter = require('./routes/User');

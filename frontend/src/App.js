@@ -19,7 +19,7 @@ import SearchPage from './components/SearchPage'
 import { Route, Switch, Redirect } from "react-router-dom"
 import { AuthContext } from './components/Context/AuthContext';
 import useScrollToTop from './components/features/js_features/useScrollTop'
-
+import ReactGA from 'react-ga';
 // import axios from "axios"
 const userNews = lazy(() => import('./User/User_News'));
 const userSupplies = lazy(() => import('./User/User_Resource'));
@@ -27,7 +27,10 @@ const userSupplies = lazy(() => import('./User/User_Resource'));
 // const SearchPage = lazy(() => import('./components/SearchPage'));
 function App() {
   const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(AuthContext);
-
+useEffect(()=>{
+  ReactGA.initialize('UA-197082753-2');
+  ReactGA.pageview(window.location.pathname + window.location.search);
+},[])
   return (
     <>
       <Navbar />
