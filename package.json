@@ -1,6 +1,6 @@
 {
   "name": "oxygen_o2",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
-  "author": "",
+  "homepage":".",
+  "author": "Rishabh Garg",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",

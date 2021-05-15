@@ -69,15 +69,15 @@ export default function NewPass() {
 
                     <div className="mb-3">
                         <label>Password</label>
-                        <input type="password" name="pwd" id="pwd" className="input-field" onChange={handle_user_inputs} required />
+                        <input autoComplete="Off" type="password" name="pwd" id="pwd" className="input-field" onChange={handle_user_inputs} required />
                     </div>
                     <div className="mb-3">
                         <label>Confirm Password</label>
-                        <input type="password" name="cpwd" id="cpwd" className="input-field" onChange={handle_user_inputs} required />
+                        <input autoComplete="Off" type="password" name="cpwd" id="cpwd" className="input-field" onChange={handle_user_inputs} required />
                     </div>
 
                     <div className="form-field">
-                        <input type="submit" value="Submit" className="register" name="register" onClick={submitData} />
+                        <input autoComplete="Off" type="submit" value="Submit" className="register" name="register" onClick={submitData} />
                     </div>
                 </form>
             </div>

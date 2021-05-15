@@ -3,7 +3,7 @@ import axios from "axios"
 import { toast } from 'react-toastify';
 import { ResendResource } from '../Resource';
 
-const Resource = () => {
+const SearchSuppliers = () => {
     const { SetSendResource  } = useContext(ResendResource);
     const [State, setState] = useState({});
     const [District, setDistrict] = useState(0);
@@ -21,10 +21,18 @@ const Resource = () => {
         }
 
     const states_json = "states_and_districts.json";
-    axios
-    (states_json).then(async (response)=>
-        setState(() => response.data["states"])
-    )
+    useEffect(()=>{
+        let isMounted = true;
+        axios
+        (states_json,{
+            headers: {
+              'Content-Type': 'application/json',"X-Content-Type-Options": "nosniff"
+            }}).then(async (response)=>{
+                if (isMounted){
+            setState(() => response.data["states"])}
+        })
+        return () => { isMounted = false };
+    },[])
 
     useEffect(() => {
         document.getElementById('district_change').getElementsByTagName('option')[0].selected = 'selected';
@@ -36,13 +44,13 @@ const Resource = () => {
                 <div className="col-md-12 col-sm-12 col-xs-12 col-lg-12">
                     {/* <form id="searchform"> */}
                         <div className="box box-primary"
-                            style={{ "margin-bottom": "0px", "border-top-color": "#2439b0" }}>
+                            style={{ marginBottom: "0px", borderTopColor: "#2439b0" }}>
 
                             <div className="box-body">
-                                <label style={{ "margin-top": "3%" }} className="text-info fs-17">Search By Entering Details 💙</label>
+                                <label style={{ marginTop: "3%" }} className="text-info fs-17">Search By Entering Details 💙</label>
                                 <div className="row">
                                     <div className="col-md-12 col-sm-12 col-xs-12 col-lg-12"
-                                        style={{ "margin-top": "2%", "display": "flex", "flexWrap": "wrap" }}>
+                                        style={{ marginTop: "2%", "display": "flex", "flexWrap": "wrap" }}>
                                         <div className="col-md-4 col-sm-4 col-xs-12 col-lg-4">
                                             <div className="form-group">
                                                 <label>Covid Resource<span
@@ -64,13 +72,13 @@ const Resource = () => {
                                                 <label>State<span className="error">*</span></label>
                                                 <select id="state_select" name="State_One" className="form-control" onChange={(e) => { Resource_handler(e)
                                                  setDistrict(() => (e.target.value !== "") ? State[e.target.value]["districts"] : {}) }}>
-                                                    <option value="" selected>Select</option>
+                                                    <option value="" defaultChecked>Select</option>
                                                     {
                                                         Object.keys(State).map((a, i) => {
-                                                            var z = <>
+                                                            var z = 
                                                                 <option key={a} value={a}>{State[a]["state"]}
                                                                 </option>
-                                                            </>;
+                                                            ;
 
                                                             return z;
                                                         })}
@@ -81,13 +89,13 @@ const Resource = () => {
                                             <div className="form-group">
                                                 <label>District(Optional)</label>
                                                 <select id="district_change" name="District_One" onChange={Resource_handler} className="form-control" >
-                                                    <option value="" selected>Select</option>
+                                                    <option value="" defaultChecked>Select</option>
                                                     {
                                                         Object.keys(District).map((a, i) => {
-                                                            var z = <>
+                                                            var z = 
                                                                 <option key={a} >{District[a]}
                                                                 </option>
-                                                            </>;
+                                                            ;
 
                                                             return z;
                                                         })}
@@ -127,4 +135,4 @@ const Resource = () => {
 
 }
 
-export default Resource;
+export default SearchSuppliers;

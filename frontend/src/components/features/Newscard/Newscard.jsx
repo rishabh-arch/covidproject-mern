@@ -38,7 +38,7 @@ const Newscard = (news_props) =>{
                 <div className="col-md-8">
                     <div className="news-feed-text" style={{wordBreak:"break-all"}}>
                 
-                        <h5 className="d-sm-inline">{(news_props.news_title)}</h5>🔹<span style={{"font-size":"13px"}}> {timeAgo(new Date(news_props.news_ID))}</span><br/>
+                        <h5 className="d-sm-inline">{(news_props.news_title)}</h5>🔹<span style={{fontSize:"13px"}}> {timeAgo(new Date(news_props.news_ID))}</span><br/>
                         <span dangerouslySetInnerHTML={{__html:news_props.news_box }}></span>
                         <div className="d-flex flex-row align-items-center mt-2">
 
@@ -47,7 +47,7 @@ const Newscard = (news_props) =>{
                            {/* <a className="pr-3" href={`https://www.facebook.com/sharer/sharer.php?u=${baseURL}/search?input=${news_props.news_image}`} data-action="share/facebook/share" target="_blank"><i className="fa fa-facebook share blue"></i></a>  */}
 
                            <a className="pr-3"  href={`http://twitter.com/share?url=${baseURL}/search?input=${news_props.news_image}`} data-action="share/twitter/share"  target="_blank"><i className="fa fa-twitter share text-primary"></i></a> 
-                        <h7 className="font-italic" style={{"font-size":"13px"}} >from : {(news_props.email)}</h7>
+                        <h5 className="font-italic" style={{fontSize:"13px"}} >from : {(news_props.email)}</h5>
                         </div>
                     </div>
                 </div>

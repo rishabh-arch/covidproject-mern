@@ -19,11 +19,12 @@ const imageProcess = async (req) => {
     const formatedName = req.file.originalname.split(' ').join('-');
     const filename = `${id}-${formatedName}`;
     try {
-        await sharp(req.file.buffer)
+        await sharp(req.file.path).jpeg({ quality: 60 })
             .toFile('frontend/build/uploads/' + filename)
 
-        await sharp(req.file.buffer).resize({ width: 242, height: 184 })
+        await sharp(req.file.path).resize(242,184)
             .toFile('frontend/build/uploads/thumbnail/' + filename)
+        fs.unlinkSync(req.file.path)
         return filename;
     }
     catch (error) {
@@ -31,4 +32,4 @@ const imageProcess = async (req) => {
 
     }
 }
-module.exports = imageProcess
+module.exports = imageProcess;

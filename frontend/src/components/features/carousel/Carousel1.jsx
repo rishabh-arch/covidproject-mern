@@ -6,11 +6,11 @@ const Carousel1 = () => {
         <div>
             
             <main>
-                <div class="about">
-                    <div class="title">
+                <div className="about">
+                    <div className="title">
                         <h1>About The Company</h1>
                     </div>
-                    <div class="desc">
+                    <div className="desc">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores modi vel blanditiis doloribus commodi impedit!. Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                     </div>
                 </div>

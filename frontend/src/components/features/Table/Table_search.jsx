@@ -7,7 +7,6 @@ import './HomeTable.css'
 const Table_search = (from) => {
     // const { SendResource } = useContext(ShareResource);
     const SendResource=from;
-    console.log(SendResource);
 
     // const [loader, showLoader, hideLoader] = useFullPageLoader();
     const [totalItems, setTotalItems] = useState(0);
@@ -25,7 +24,6 @@ const Table_search = (from) => {
     const commentsData = useMemo(() => {
         let computedComments = SendResource.props;
         if (search) {
-            console.log(computedComments)
             computedComments = computedComments.filter(
                 comment =>
                    comment.Resource_One.toLowerCase().includes(search.toLowerCase()) || comment.Address.toLowerCase().includes(search.toLowerCase()) || comment.Address_one.toLowerCase().includes(search.toLowerCase())

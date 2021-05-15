@@ -7,7 +7,7 @@ export default function User_table(userResource) {
                 
                 <tr>
                     <td className="text-center"><input className="inp" value={userResource.news_ID} type="checkbox"/></td>
-                    <td colspan="2">
+                    <td colSpan="2">
                         <h6 className="text-dark h5">{userResource.news_title} <Card.Text dangerouslySetInnerHTML={{__html:userResource.news_box }}></Card.Text></h6>
                     </td>
                     <td>

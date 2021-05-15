@@ -11,7 +11,7 @@ PORT = 5000;
 app.use(express.urlencoded({
     extended: true
 }));
-
+app.disable('x-powered-by');
 
 const userRouter = require('./routes/User');
 app.use('/',userRouter);
@@ -22,8 +22,6 @@ app.use('/',userRouter);
     app.get("*", (req, res) => {
         res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
     })
-
-
 
 app.listen(PORT, '127.0.0.1',() => {
     console.log(`connected to database, app listening on port ${PORT}`);

@@ -67,19 +67,19 @@ export default function ChangePass() {
 
                     <div className="mb-3">
                         <label>Old Password</label>
-                        <input type="password" name="opwd" id="opwd" className="input-field" onChange={handle_user_inputs} required />
+                        <input autoComplete="Off" type="password" name="opwd" id="opwd" className="input-field" onChange={handle_user_inputs} required />
                     </div>
                     <div className="mb-3">
                         <label>Password</label>
-                        <input type="password" name="pwd" id="pwd" className="input-field" onChange={handle_user_inputs} required />
+                        <input autoComplete="Off" type="password" name="pwd" id="pwd" className="input-field" onChange={handle_user_inputs} required />
                     </div>
                     <div className="mb-3">
                         <label>Confirm Password</label>
-                        <input type="password" name="cpwd" id="cpwd" className="input-field" onChange={handle_user_inputs} required />
+                        <input autoComplete="Off" type="password" name="cpwd" id="cpwd" className="input-field" onChange={handle_user_inputs} required />
                     </div>
 
                     <div className="form-field">
-                        <input type="submit" ref={focusPoint} value="Submit" className="register" name="register" onClick={submitData} />
+                        <input autoComplete="Off" type="submit" ref={focusPoint} value="Submit" className="register" name="register" onClick={submitData} />
                     {loading ? <>
                             <span className="p-2"><Spinner animation="border" variant="primary"/>
                             </span>

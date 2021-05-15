@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./covidTable.css";
 
 const Covidtable = () =>{
     const [count,setCount]=useState({});
+
     const url ="https://api.covid19india.org/data.json";
+useEffect(()=>{
+    const body = document.querySelector('#root');
+    body.scrollIntoView({
+        behavior: 'smooth'
+    }, 500)
+    let isMounted = true
     fetch(url).then((response)=>response.json()).then((data)=>{
-        setCount(data["statewise"]);
+        if (isMounted) setCount(data["statewise"]);
     })
+    .catch(err=>alert("Data not Found"));
+    return () => { isMounted = false };
+},[]);
+
     return (
 <div>
 <section className="content-info">
@@ -29,7 +40,7 @@ const Covidtable = () =>{
                     </thead>
                     <tbody className="text-center">
                     {Object.keys(count).map((a,i)=>{
-                        var z = <tr>
+                        var z = <tr key={i}>
                             <td className="text-left number" style={{backgroundColor:"rgb(0 123 155)"}}>{a}</td>
                             <td className="text-left"> <span>{count[a]["state"]}</span> </td>
                             <td style={{backgroundColor:"rgb(3 160 3 / 58%)"}}>{parseInt(count[a]["active"]).toLocaleString('en-IN')}</td>

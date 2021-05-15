@@ -23,15 +23,18 @@ const News = (News_prop) => {
     }
 
     useEffect(() => {
+        let isMounted = true;
         axios
             .get(`/Postnews?page=${getPage}&ss=${News_prop.props}`)
             .then((res) => {
+                if (isMounted){
                 setNews(res.data.news_post)
                 setQureyPage(res.data.itemCount)
-
+}
                 body.scrollIntoView({
                     behavior: 'smooth'
                 }, 500)
+                return () => { isMounted = false };
             }
             )
 
@@ -51,7 +54,6 @@ const News = (News_prop) => {
             <Pagination>{items}</Pagination>
         </div>
     );
-    // console.log(posts)
     return (
         <div>
             {getNews.length === 1 ? <><Helmet>
@@ -71,8 +73,8 @@ const News = (News_prop) => {
             </Helmet><Postcard /></> : null}
 
 
-            <Suspense fallback={<Spinner style={{ "margin-left": "50%" }} animation="border" variant="info" />}>
-                <News_container posts={getNews} />
+            <Suspense fallback={<Spinner style={{ marginLeft: "50%" }} animation="border" variant="info" />}>
+                <News_container key={Date.now()} posts={getNews} />
             </Suspense>
             <div>
                 {paginationBasic}

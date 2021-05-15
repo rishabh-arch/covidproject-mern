@@ -13,10 +13,20 @@ const transporter  = nodemailer.createTransport('smtps://prernagarg0509%40gmail.
 const imageProcess = require('../Features/Multer');
 dotenv.config({ path: '../config.env' });
 const fs = require('fs');
+
 const sharp = require('sharp');
 const multer = require('multer');
 const { verify } = require('crypto');
-const storage = multer.memoryStorage();
+
+const storage = multer.diskStorage({ 
+    destination: function (req, file, cb) { 
+        fsAccess('frontend/build/uploads/');
+        cb(null, "frontend/build/uploads/") ;
+    }, 
+    filename: function (req, file, cb) { 
+      cb(null, file.fieldname + "-" + Date.now()+".jpg") 
+    } 
+  }) ;
 const uploads = multer({ storage });
 const secret = process.env.secret;
 const signToken = userID => {
@@ -26,7 +36,15 @@ const signToken = userID => {
     }, secret, { expiresIn: Date.now() + 99999999999 });
 }
 userRouter.use(bodyParser.json()); // <--- Here
+
 userRouter.use(bodyParser.urlencoded({ extended: true }));
+const fsAccess = (loc) => {
+    fs.access(loc, (err) => {
+        if (err)
+            fs.mkdirSync(loc);
+    })
+
+}
 const isValidPhone = (phoneNumber) => {
     const found = phoneNumber.search(/^(\+{1}\d{2,3}\s?[(]{1}\d{1,3}[)]{1}\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}$/);
     if (found > -1) {
@@ -74,6 +92,7 @@ userRouter.post('/userregistration', (req, res) => {
 });
 
 userRouter.post('/userLogin', passport.authenticate('local', { session: false }), (req, res) => {
+
     if (req.isAuthenticated()) {
         const { _id, email, role } = req.user;
         const token = signToken(_id);
@@ -143,6 +162,7 @@ userRouter.post('/Postnews', [passport_auth, upload_mid], async (req, res) => {
                         res.status(401).json({ error: "Not more than 20" });
                     else {
                         const filename = await imageProcess(req);
+
                         await db.getDB().collection("newsPost").insertOne({ news_ID: createID, email: req.user.email, news_title, news_box, news_image: filename, news_hash: news_hash.split(",") })
                         res.status(200).json({ msg: "successfully post" });
                     }
@@ -272,14 +292,13 @@ userRouter.post('/DeleteuserNewsData', passport_auth, async (req, res) => {
                     if (deleteResult && Result.length > 0) {
                         const NewsData = await db.getDB().collection("newsPost").find({ email: body_email }).toArray();
                         Result.forEach((image, i) => {
-                            fs.unlink(`frontend/build/uploads/${image.news_image}`, err => {
+                                try{
+                            fs.unlink(`frontend/build/uploads/${image.news_image}`);
+                            fs.unlink(`frontend/build/uploads/thumbnail/${image.news_image}`);
+                                }catch(err){
+                                    res.status(401).json({ error: err });
+                                }
 
-                                if (err) throw err;
-                            });
-                            fs.unlink(`frontend/build/uploads/thumbnail/${image.news_image}`, err => {
-
-                                if (err) throw err;
-                            });
                         });
 
                         return res.status(200).json({ NewsData: NewsData, Message: "Deleted" });

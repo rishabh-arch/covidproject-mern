@@ -12,7 +12,7 @@ import AuthProvider from './components/Context/AuthContext';
 
 ReactDOM.render(
   <>
-<BrowserRouter>
+<BrowserRouter basename='/index.html'>
 <AuthProvider>
     <App/>
     </AuthProvider>

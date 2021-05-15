@@ -42,6 +42,7 @@ passport.use(new LocalStrategy({
     passwordField: 'pwd'
 }, (email, password, done) => {
     email = email.toLowerCase();
+
     db.getDB().collection("users").findOne({ email: email }, (err, user) => {
         // something went wrong with database
         if (err)

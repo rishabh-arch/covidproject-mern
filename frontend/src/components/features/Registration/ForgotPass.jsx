@@ -40,7 +40,7 @@ export default function ForgotPass() {
 
                     <div className="mb-3">
                         <label>Your Email</label>
-                        <input type="email" className="input-field" name="email"
+                        <input autoComplete="Off" type="email" className="input-field" name="email"
                             onChange={
                                 (e) => setEmail(e.target.value)
                             }
@@ -48,7 +48,7 @@ export default function ForgotPass() {
                     </div>
 
                     <div className="form-field">
-                        <input type="submit"
+                        <input autoComplete="Off" type="submit"
                             ref={focusPoint}
                             value="Submit"
                             className="register"

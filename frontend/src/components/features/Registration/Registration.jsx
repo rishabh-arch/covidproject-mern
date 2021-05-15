@@ -109,7 +109,7 @@ const Registration = () => {
                     Vitae auctor eu augudsf ut. Malesuada nunc vel risus commodo viverra. Praesent elementum facilisis leo vel.
                 </p>
                 <div className="form-field">
-                    <NavLink to="/login"><input type="button" className="account" value="Have an Account ?" /></NavLink>
+                    <NavLink to="/login"><input autoComplete="On" type="button" className="account" value="Have an Account ?" /></NavLink>
                 </div>
             </div>
             <form method="POST" className="form-right">
@@ -118,16 +118,16 @@ const Registration = () => {
                 <div className="row">
                     <div className="col-sm-6 mb-3">
                         <label>First Name<span>*</span></label>
-                        <input type="text" name="first_name" id="first_name" className="input-field" onChange={handle_user_inputs} required />
+                        <input autoComplete="On" type="text" name="first_name" id="first_name" className="input-field" onChange={handle_user_inputs} required />
                     </div>
                     <div className="col-sm-6 mb-3">
                         <label>Last Name<span>*</span></label>
-                        <input type="text" name="last_name" id="last_name" className="input-field" onChange={handle_user_inputs} required />
+                        <input autoComplete="On" type="text" name="last_name" id="last_name" className="input-field" onChange={handle_user_inputs} required />
                     </div>
                 </div>
                 <div className="mb-3">
                     <label>Your Email<span>*</span></label>
-                    <input type="email" className="input-field" name="email" onChange={handle_user_inputs} required />
+                    <input autoComplete="On" type="email" className="input-field" name="email" onChange={handle_user_inputs} required />
                 </div>
                 <div>
                     <div className="form-group">
@@ -141,7 +141,7 @@ const Registration = () => {
                                     setDistrict(() => (e.target.value !== "") ? State[e.target.value]["districts"] : {})
                                 }
                             } required>
-                            <option value="" selected>Select</option>
+                            <option value="" defaultChecked>Select</option>
                             {
                                 Object.keys(State).map((a, i) => {
                                     var z = <>
@@ -161,7 +161,7 @@ const Registration = () => {
                     <div className="form-group">
                         <label>District<span>*</span></label>
                         <select id="district_change" className="input-field" name="City" onChange={handle_user_inputs} required>
-                            <option value="" selected>Select</option>
+                            <option value="" defaultChecked>Select</option>
                             {
                                 Object.keys(District).map((a, i) => {
                                     var z = <>
@@ -180,29 +180,28 @@ const Registration = () => {
 
                 <div>
                     <label>Contact No.<span>*</span></label>
-                    <input type="text" name="contact" className="input-field" onChange={handle_user_inputs} placeholder="959XXXXXX6" required />
+                    <input autoComplete="On" type="text" name="contact" className="input-field" onChange={handle_user_inputs} placeholder="959XXXXXX6" required />
                 </div>
                 <div>
                     <label>Password<span>*</span></label>
-                    <input type="password" name="pwd" id="pwd" className="input-field" onChange={handle_user_inputs} required />
+                    <input autoComplete="On" type="password" name="pwd" id="pwd" className="input-field" onChange={handle_user_inputs} required />
                 </div>
                 <div>
                     <label>Current Password<span>*</span></label>
-                    <input type="password" name="cpwd" id="cpwd" className="input-field" onChange={handle_user_inputs} required />
+                    <input autoComplete="On" type="password" name="cpwd" id="cpwd" className="input-field" onChange={handle_user_inputs} required />
                 </div>
                 <div className="mb-3 mt-2">
                     <label className="option">I agree to the
                         <a href="#"> Terms and Conditions<span>*</span></a>
-                        <input type="checkbox" id="agreeBtn" name="agree" defaultValue="false" onChange={() => {
+                        <input autoComplete="On" type="checkbox" id="agreeBtn" name="agree" defaultValue="false" onChange={() => {
                             const agree = { target: { value: (document.getElementById("agreeBtn").checked), name: "agree" } };
-                            console.log(agree)
                             handle_user_inputs(agree)
                         }} required />
                         <span className="checkmark"></span>
                     </label>
                 </div>
                 <div className="form-field">
-                    <input type="submit" value="Register" ref={focusPoint} className="register" name="register" onClick={submitData} />
+                    <input autoComplete="On" type="submit" value="Register" ref={focusPoint} className="register" name="register" onClick={submitData} />
                     {
                         loading ? <>
                             <span className="p-2"><Spinner animation="border" variant="primary"/>

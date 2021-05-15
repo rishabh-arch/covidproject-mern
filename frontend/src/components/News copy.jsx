@@ -50,11 +50,10 @@ const News = (News) => {
           <Pagination>{items}</Pagination>
         </div>
       );
-    // console.log(posts)
     return (
         <div>
             <Postcard />
-            <Suspense fallback={<Spinner style={{ "margin-left": "50%" }} animation="border" variant="info" />}>
+            <Suspense fallback={<Spinner style={{ marginLeft: "50%" }} animation="border" variant="info" />}>
                 <News_container posts={getNews} />
             </Suspense>
           <div>

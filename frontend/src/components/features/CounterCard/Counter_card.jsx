@@ -4,25 +4,25 @@ import './Counter_card.css';
 const CounterCard = () =>{
 
     return (
-<div class="container">
-    <div class="row">
-        <div class="four col-md-3">
-            <div class="counter-box colored"> <i class="fa fa-thumbs-o-up"></i> <span class="counter">-</span>
+<div className="container">
+    <div className="row">
+        <div className="four col-md-3">
+            <div className="counter-box colored"> <i className="fa fa-thumbs-o-up"></i> <span className="counter">-</span>
                 <p>Total Oxygen Cylinders</p>
             </div>
         </div>
-        <div class="four col-md-3">
-            <div class="counter-box"> <i class="fa fa-group"></i> <span class="counter">-</span>
+        <div className="four col-md-3">
+            <div className="counter-box"> <i className="fa fa-group"></i> <span className="counter">-</span>
                 <p>Isolation Rooms</p>
             </div>
         </div>
-        <div class="four col-md-3">
-            <div class="counter-box"> <i class="fa fa-shopping-cart"></i> <span class="counter">-</span>
+        <div className="four col-md-3">
+            <div className="counter-box"> <i className="fa fa-shopping-cart"></i> <span className="counter">-</span>
                 <p>anything</p>
             </div>
         </div>
-        <div class="four col-md-3">
-            <div class="counter-box"> <i class="fa fa-user"></i> <span class="counter">-</span>
+        <div className="four col-md-3">
+            <div className="counter-box"> <i className="fa fa-user"></i> <span className="counter">-</span>
                 <p>Saved Trees</p>
             </div>
         </div>

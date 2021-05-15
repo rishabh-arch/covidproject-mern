@@ -89,12 +89,9 @@ const Twitterbot = () => {
 
                             let TwitterUrl = `verified ${cityname} (${todo_arr_split})-${Nottodo_arr_split}&f=live`;
                             if (topbox !== "" && topbox !== " ") {
-                                console.log(topbox)
                                 TwitterUrl = `verified ${cityname} (${todo_arr_split} OR ${topbox})-${Nottodo_arr_split}&f=live`
                             }
                             if (bottombox !== "" && bottombox !== " ") {
-                                console.log(bottombox)
-
                                 TwitterUrl = `verified ${cityname} (${todo_arr_split})-${Nottodo_arr_split}-${bottombox}&f=live`
                             }
                             if ((bottombox !== "" && bottombox !== " ") && (topbox !== "" && topbox !== " ")) {

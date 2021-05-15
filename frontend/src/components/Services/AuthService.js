@@ -17,7 +17,6 @@ export default {
         })
     },
     register : user =>{
-        console.log(user);
         return fetch('/userregistration',{
             method : "post",
             body : JSON.stringify(user),
@@ -33,12 +32,9 @@ export default {
                 .then(data => data);
     },
     isAuthenticated : ()=>{
-        console.log("res")
         return fetch('/authenticated')
                 .then(res=>{
                     if(res.status !== 401){
-                        console.log("working")
-
                         return res.json().then(data => data);
                     }
                     else

@@ -37,12 +37,12 @@ export default function SearchPage() {
             <div>
                 <Table_search props={fromResource} />
 
-            </div> : <div class="container p-3 my-3 bg-primary text-white text-center h5">Sorry! But We Found Nothing from Covid Resource</div>}
+            </div> : <div className="container p-3 my-3 bg-primary text-white text-center h5">Sorry! But We Found Nothing from Covid Resource</div>}
         {fromNews > 0 ?
             <div>
                 <News props={params} />
 
-            </div> : <div class="container p-3 my-3 bg-primary text-white text-center h5">Sorry! But We Found Nothing from News</div>}
+            </div> : <div className="container p-3 my-3 bg-primary text-white text-center h5">Sorry! But We Found Nothing from News</div>}
     </>
 
     )

@@ -40,19 +40,19 @@ const Contact = () => {
                     <p className="justify text-muted">Have an enquiry or would like to give us feedback?<br />Fill out the form below to contact our team.</p>
                     <form>
                         <div className="form-group pt-2 pl-1">
-                            <label for="exampleInputName">Your name</label>
+                            <label htmlFor="exampleInputName">Your name</label>
                             <input type="text" className="form-control" onChange={ContactHandler} name="Con_name" id="exampleInputName" />
                         </div>
                         <div className="form-group pl-1">
-                            <label for="exampleInputEmail1">Your email address</label>
+                            <label htmlFor="exampleInputEmail1">Your email address</label>
                             <input type="email" className="form-control" onChange={ContactHandler} name="Con_email" id="exampleInputEmail1" />
                         </div>
                         <div className="form-group pl-1">
-                            <label for="exampleInputPhone">Phone(Optional)</label>
+                            <label htmlFor="exampleInputPhone">Phone(Optional)</label>
                             <input type="tel" className="form-control" onChange={ContactHandler} name="Con_phone" id="exampleInputPhone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" />
                         </div>
                         <div className="form-group pl-1">
-                            <label for="exampleFormControlTextarea1">Your message</label>
+                            <label htmlFor="exampleFormControlTextarea1">Your message</label>
                             <textarea className="form-control" onChange={ContactHandler} name="Con_msg" id="exampleFormControlTextarea1" rows="5"></textarea>
                         </div>
                         <div className="row">

@@ -63,12 +63,10 @@ const Postcard = () => {
 
         }
     }
-    // console.log(newsInput)
 
     const changeOnClick = (e) => {
         e.preventDefault();
 
-        btnDisabled.current.disabled = true;
         const options = {
 
             onUploadProgress: progressEvent => {
@@ -121,13 +119,13 @@ const Postcard = () => {
         )
     }
     return (
-        <div class="container mt-5 mb-5">
-            <div class="d-flex justify-content-center row">
-                <div class="col-md-8">
+        <div className="container mt-5 mb-5">
+            <div className="d-flex justify-content-center row">
+                <div className="col-md-8">
                     <div className="feed">
                         <form onSubmit={changeOnClick} encType="multipart/form-data">
                             <div className="share border bg-white">
-                                <div className="d-flex flex-row inputs"><input type="text" className="border-0 form-control share-input" name="news_title" placeholder="Title" onChange={handle_News_inputs} /></div>
+                                <div className="d-flex flex-row inputs"><input autoComplete="Off" type="text" className="border-0 form-control share-input" name="news_title" placeholder="Title" onChange={handle_News_inputs} /></div>
                                 <div className="d-flex flex-row inputs"><textarea type="textarea" className="border-0 form-control share-input" name="news_box" placeholder="Share your thoughts" ref={HashResult} onChange={
                                     (e) => {
                                         const news_box_converted = { target: { value: convertText_Html(e.target.value)[0], name: "news_box" } };
@@ -139,7 +137,7 @@ const Postcard = () => {
                                 <div className="d-flex flex-row justify-content-between border-top">
                                     <div style={{ border: "1px solid #007bff" }} className="d-flex flex-row publish-options" onClick={
                                         () => document.getElementById('post_up').click()}>
-                                        <input type="file" id="post_up" filename="news_image" accept="image/x-png ,image/jpeg" onChange={handle_NewsImg_inputs} hidden />
+                                        <input autoComplete="Off" type="file" id="post_up" filename="news_image" accept="image/x-png ,image/jpeg" onChange={handle_NewsImg_inputs} hidden />
                                         <img src="" ref={focusPoint} id="canvas" onError={() => document.getElementById('canvas').src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Sq_blank.svg/600px-Sq_blank.svg.png'} />
                                         <div className="align-items-center border-right p-2 share"><i className="fa fa-camera text-black-50"></i><span className="ml-1">Photo</span></div>
                                     </div>
