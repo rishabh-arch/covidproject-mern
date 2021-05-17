@@ -113,8 +113,7 @@ const SearchSuppliers = () => {
 
                             <div className="box-footer ptb-0">
                                 <div className="col-md-4 col-sm-4 col-xs-12 col-lg-4">
-                                    <button type="submit" onClick={SearchClick} className="btn btn-success searchbtn"
-                                        style={{ "background": "#2439b0" }}>Search</button>
+                                    <button type="submit" onClick={SearchClick} className="btn btn-success searchbtn" style={{ "background": "#2439b0" }}><a href="#res_result" className="text-decoration-none text-white">Search</a></button>
                                 </div>
 
                             </div>

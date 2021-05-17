@@ -49,8 +49,8 @@ const Footer = () =>{
                  </ul>
              </div>
              <div className="col-lg-4 col-md-6 mb-lg-0">
-                 <h6 className="text-uppercase font-weight-bold mb-4">Registered Office Address</h6>
-                 <p className="text-muted mb-4">Here , write the complete address of the Registered office address along with telephone number.</p>
+                 {/* <h6 className="text-uppercase font-weight-bold mb-4">Registered Office Address</h6>
+                 <p className="text-muted mb-4">Here , write the complete address of the Registered office address along with telephone number.</p> */}
                  <ul className="list-inline mt-4">
                      <li className="list-inline-item"><NavLink to="#" target="_blank" title="twitter"><i className="fab fa-2x fa-twitter"></i></NavLink></li>
                      <li className="list-inline-item"><NavLink to="#" target="_blank" title="facebook"><i className="fab fa-2x fa-facebook-f"></i></NavLink></li>
@@ -64,7 +64,7 @@ const Footer = () =>{
      <hr className="p-0 m-0 b-0"/>
      <div className="bg-light py-2">
          <div className="container text-center">
-             <p className="text-muted mb-0 py-2">© 2021 Oxygen All rights reserved.</p>
+             <p className="text-muted mb-0 py-2">© 2021 OxHome All rights reserved.</p>
          </div>
      </div>
  </footer>

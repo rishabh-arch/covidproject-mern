@@ -8,10 +8,10 @@ const Carousel1 = () => {
             <main>
                 <div className="about">
                     <div className="title">
-                        <h1>About The Company</h1>
+                        <h1>About This Website</h1>
                     </div>
                     <div className="desc">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores modi vel blanditiis doloribus commodi impedit!. Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <p> </p>
                     </div>
                 </div>
             </main>

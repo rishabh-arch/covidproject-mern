@@ -65,13 +65,24 @@ const Table = () => {
                         </div>
                     </div>
 
-                    <table className="table table-striped p-2">
+                    <table className="table table-striped p-2" id="res_result">
                         <TableHeader
                             headers={headers}
                         />
                         <tbody>
-                        {Object.keys(commentsData).map((a, i) => <ResourceTable props={commentsData[a]}/>
-                        )}
+                        {commentsData.length>0?
+                        Object.keys(commentsData).map((a, i) => <ResourceTable props={commentsData[a]}/>
+                        ):
+                        <>
+                            <tr>
+                                <td className="text-center text-white bg-primary h3">
+                                    Your Search Result will show here if it is present.
+                                </td>
+                            </tr>
+
+
+                        </>}
+
                         </tbody>
 
                     </table>
