@@ -115,7 +115,7 @@ function Navbar() {
                             {/* <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/registration" data-abc="true">Registration</NavLink> </li> */}
                             <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/CoronaLive" data-abc="true">Corona Live</NavLink> </li>
                             <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/contactus" data-abc="true">Get in Touch</NavLink> </li>
-                            <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/Twitter" data-abc="true">Twitter</NavLink> </li>
+                            <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/Twitter" data-abc="true">Twitter Bot</NavLink> </li>
                             <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/about" data-abc="true">About</NavLink> </li>
                             {!isAuthenticated ? null : <>
                                 <li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/userSupplies" data-abc="true">Your Supplies</NavLink> </li><li className="nav-item"> <NavLink activeClassName="text-white bg-primary " className="nav-link" to="/userNews" data-abc="true">Your Feed</NavLink> </li><li className="nav-item nav-link font-smaller"> {user.email} </li></>}
